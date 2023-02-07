@@ -29,43 +29,37 @@ CTの仕組みをAPIとして公開している[Certstream](https://certstream.c
 以下のように本日取得されたクラウドのリソースを探すことができます。
 * AWS S3
 ```bash
-docker run --rm -it -v $PWD:/work -w /work \
-    phishinghunter/cert-hunter:latest \
+docker run --rm -it phishinghunter/cert-hunter:latest \
     bash -c 'cat /csv/target.csv|grep s3.amazonaws.com'
 ```
 
 * AWS Cloudfront
 ```bash
-docker run --rm -it -v $PWD:/work -w /work \
-    phishinghunter/cert-hunter:latest \
+docker run --rm -it phishinghunter/cert-hunter:latest \
     bash -c 'cat /csv/target.csv|grep cloudfront.net'
 ```
 
 * GCP Cloud Run
 ```bash
-docker run --rm -it -v $PWD:/work -w /work \
-    phishinghunter/cert-hunter:latest \
+docker run --rm -it phishinghunter/cert-hunter:latest \
     bash -c 'cat /csv/target.csv|grep run.app'
 ```
 
 * Azure Web Apps
 ```bash
-docker run --rm -it -v $PWD:/work -w /work \
-    phishinghunter/cert-hunter:latest \
+docker run --rm -it phishinghunter/cert-hunter:latest \
     bash -c 'cat /csv/target.csv|grep azurewebsites.net'
 ```
 
 * Cloudflare
 ```bash
-docker run --rm -it -v $PWD:/work -w /work \
-    phishinghunter/cert-hunter:latest \
+docker run --rm -it phishinghunter/cert-hunter:latest \
     bash -c 'cat /csv/target.csv|grep cloudflare.net'
 ```
 
 `latest`のタグがついたdockerイメージが最新のログを示しており、過去に取得されたログを検索したい場合はタグ名を以下のように変更してください。
 ```bash
-docker run --rm -it -v $PWD:/work -w /work \
-    phishinghunter/cert-hunter:20230201 \
+docker run --rm -it phishinghunter/cert-hunter:20230201 \
     bash -c 'cat /csv/target.csv|grep s3.amazonaws.com'
 ```
 
