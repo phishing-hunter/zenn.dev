@@ -83,7 +83,7 @@ $ openssl s_client -showcerts -connect www.netlify.app:443 2>/dev/null | openssl
 
 ## 最後に
 今回紹介したcert-hunterは過去に取得されたドメインの調査に特化しています。
-証明書が発行されたタイミングで通知を受け取りたい場合は[こちら](https://phishing-hunter.com/)に登録してみてください。
+証明書が発行されたタイミングで通知を受け取りたい場合は[フィッシングハンター](https://phishing-hunter.com/)に登録してみてください。
 
 インフラストラクチャが適切に設定されているかどうか確かめるきっかけとなれば幸いです。
 
