@@ -15,9 +15,9 @@ https://zenn.dev/tatsui/articles/1dff8410b7bdd7
 
 @[tweet](https://twitter.com/defenceability/status/1628336214100316161)
 
-一般的なフィッシングサイトの対策手法は、以下の2つに分類されます。
-1. クローラーやSaaSの活用
-	- urlscan.io を使ったHTMLやJavascript、スクリーンショットの解析
+一般的なフィッシングサイトの検出手法は、以下の2つに分類されます。
+1. クローラーの実装やSaaSの活用
+	- urlscan.io等を使ったHTMLやJavascript、スクリーンショットの解析
 	- [SSL証明書の監視](http://phishing-hunter.com)
 	- [類似ドメイン名のスキャン](http://demo.phishing-hunter.com)
 2. ブラウザの機能やアドオンによる検出
