@@ -7,6 +7,12 @@ published: false
 ---
 
 ## はじめに
+
+前回記事をもう少し掘り下げてみました。  https://zenn.dev/tatsui/articles/1dff8410b7bdd7
+
+@[tweet](https://twitter.com/defenceability/status/1628336214100316161)
+@[tweet](https://twitter.com/mootastic/status/1628625149288382464)
+@[tweet](https://twitter.com/WEB18619508/status/1629037444556546048)
 インターネットには、フィッシング攻撃など、悪意のある脅威があふれています。
 Evilginx2 は、最も危険なフィッシング攻撃の 1 つです。高度な技術を使用して検出を回避し、無防備な被害者から資格情報を盗みます。
 幸いなことに、JavaScript ドメイン名チェックやフィッシング ブロッカーを使用するなど、Evilginx2 を検出して防止する方法があります。
