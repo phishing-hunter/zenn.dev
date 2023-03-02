@@ -110,7 +110,7 @@ checkHostname(pattern, "Phishing Scam Detected", true)
 
 <script>
 export default {
-  created() {
+  mounted() {
     const checkHostname = require('phishing-blocker');
     const pattern = /^((www|dev)\.)?phishing-hunter\.com$/i;
     checkHostname(pattern, "Phishing Scam Detected", true);
