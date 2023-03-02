@@ -87,4 +87,3 @@ checkHostname(pattern, "Phishing Scam Detected", true)
 https://www.freebuf.com/sectool/190646.html
 https://www.blackhatethicalhacking.com/tools/evilginx2/
 https://macrosec.tech/index.php/2021/01/25/phishing-attacks-with-evilginx2/
-@[tweet](https://twitter.com/WEB18619508/status/1629037444556546048)
