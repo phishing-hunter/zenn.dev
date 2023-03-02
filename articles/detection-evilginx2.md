@@ -17,7 +17,7 @@ https://zenn.dev/tatsui/articles/1dff8410b7bdd7
 
 一般的なフィッシングサイトの対策手法は、以下の2つに分類されます。
 * クローラーやSaaSの活用
-  * urlscan.io を使ったHTMLやJavascriptを解析
+  * urlscan.io を使ったHTMLやJavascript、スクリーンショットの解析
   * [SSL証明書の監視](http://phishing-hunter.com)
   * [類似ドメイン名のスキャン](http://demo.phishing-hunter.com)
 * ブラウザの機能やアドオンによる検出
