@@ -94,11 +94,29 @@ module.exports = function checkHostname(pattern, message="Phishing Scam Detected
 npm install phishing-blocker
 ```
 
-インストール後にWebページの描画後に以下のようなコードを呼び出すことでドメインの検査を行うことが可能になります。
+インストールが完了したら、Webページの描画後に以下のようなコードを呼び出すことでドメインの検査を行うことが可能になります。
 ```javascript
 const checkHostname = require('phishing-blocker');
-var pattern = /^((www|dev)\.)?phishing-hunter\.com$/i;
+const pattern = /^((www|dev)\.)?phishing-hunter\.com$/i;
 checkHostname(pattern, "Phishing Scam Detected", true)
+```
+[フィッシングハンター](http://phishing-hunter.com)ではNuxt.jsを使っているので以下のようなコードを書いています。
+```vue
+<template>
+  <div>
+    <h1>Hello World!</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  created() {
+    const checkHostname = require('phishing-blocker');
+    const pattern = /^((www|dev)\.)?phishing-hunter\.com$/i;
+    checkHostname(pattern, "Phishing Scam Detected", true);
+  },
+};
+</script>
 ```
 
 ## まとめ
