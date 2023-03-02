@@ -2,7 +2,7 @@
 title: "フィッシングサイトをテイクダウンせずに無力化する方法"
 emoji: "📌"
 type: "tech"
-topics: ["javascript", "security", "nginx"]
+topics: ["javascript", "security", "nginx", "phishing", "mfa"]
 published: false
 ---
 
