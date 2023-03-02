@@ -8,7 +8,8 @@ published: false
 
 ## はじめに
 
-前回記事をもう少し掘り下げてみました。  https://zenn.dev/tatsui/articles/1dff8410b7bdd7
+前回記事をもう少し掘り下げてみました。 
+https://zenn.dev/tatsui/articles/1dff8410b7bdd7
 
 @[tweet](https://twitter.com/defenceability/status/1628336214100316161)
 @[tweet](https://twitter.com/mootastic/status/1628625149288382464)
@@ -70,3 +71,4 @@ checkHostname(pattern, "Phishing Scam Detected", true)
 Evilginx2はJavascriptを挿入することも可能なため、ドメイン名をチェックするだけでは不十分な可能性がありますが、攻撃の難易度をあげることが出来るため一定の効果は期待できそうです。
 
 この記事を読んで、少しでもお役に立てたなら幸いです。何か質問やご意見がありましたら、お気軽にご連絡ください。
+
