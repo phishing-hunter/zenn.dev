@@ -60,14 +60,22 @@ Evilginx2を検出する方法の1つはJavaScriptで正しいドメインかど
 
 以下がサンプルコードです。
 ```javascript
+// pattern: ドメインパターンを受け取る正規表現オブジェクト
+// message: フィッシングサイト検知時に表示するメッセージ
+// replace_html: メッセージを表示する方法を選択するフラグ。trueの場合はHTMLを置換する。
 module.exports = function checkHostname(pattern, message="Phishing Scam Detected", replace_html=false) {
-  let detect = true
+  // 検知フラグ。初期値はtrue。
+  let detect = true;
+  // パターンにマッチするドメインでない場合は検知フラグをfalseにする。
   if (pattern.test(window.location.hostname)){
     detect = false;
   }
+  // ローカルホストの場合は検知しない。
   if (window.location.hostname == 'localhost'){
     detect = false;
   }
+  // 検知フラグがtrueの場合は、コンソールにメッセージを出力し、
+  // HTMLを置換するかアラートダイアログを表示する。
   if (detect){
     console.error(message + " " + window.location.hostname)
     if (replace_html){
