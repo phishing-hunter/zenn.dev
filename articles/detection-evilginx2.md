@@ -3,7 +3,7 @@ title: "フィッシングサイトをテイクダウンせずに無力化する
 emoji: "📌"
 type: "tech"
 topics: ["javascript", "security", "nginx", "phishing", "mfa"]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -19,7 +19,7 @@ https://zenn.dev/tatsui/articles/1dff8410b7bdd7
 1. クローラーの実装やSaaSの活用
 	- urlscan.io等を使ったHTMLやJavascript、スクリーンショットの解析
 	- [SSL証明書の監視](http://phishing-hunter.com)
-	- [類似ドメイン名のスキャン](http://demo.phishing-hunter.com)
+	- [類似ドメインを探す](http://demo.phishing-hunter.com)
 2. ブラウザの機能やアドオンによる検出
 	- Googleセーフブラウジング
 	- アンチウイルスベンダが公開しているアドオン
@@ -47,12 +47,12 @@ Evilginx2は、ログイン認証情報とセッションクッキーをフィ�
 以下のように実際にEvilginx2をローカルに構築してみて本物のサイトと比較してみました。
 
 ### 本物のサイト
-![](/images/detection-evilginx2/1.png)
+![本物のサイト](/images/detection-evilginx2/1.png)
 ### Evilginx2を経由した偽サイト
 :::message alert
 Evilginx2の対策でサイトを表示すると正規ドメインと異なる場合に警告されるようになっていました。
 :::
-![](/images/detection-evilginx2/2.png)
+![Evilginx2を経由](/images/detection-evilginx2/2.png)
 
 
 ## Evilginx2を検出し無力化する方法
@@ -102,7 +102,7 @@ checkHostname(pattern, "Phishing Scam Detected", true)
 ```
 
 ## まとめ
-今回は、フィッシング詐欺対策として、JavaScriptを使ってページを無力化する方法について説明しました。ただ、Evilginx2はJavaScriptを挿入できるため、ドメイン名のチェックだけでは不十分な場合があります。しかし、この方法を使うことで攻撃の難易度を上げることができるため、一定の効果が期待できます。
+今回は、フィッシング詐欺対策として、JavaScriptを使ってページを無力化する方法について説明しました。この方法を使うことで攻撃の難易度を上げることができるため一定の効果が期待できますが、Evilginx2はJavaScriptを動的に挿入する機能があるため、ドメイン名のチェックだけでは不十分な場合があります。
 この記事を読んで、少しでもお役に立てたなら幸いです。何か質問やご意見がありましたら、お気軽にご連絡ください。
 
 
