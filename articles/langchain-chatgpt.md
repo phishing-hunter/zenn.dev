@@ -90,7 +90,7 @@ result = qa({"question": question, "chat_history": []})
 print(result["answer"])
 ```
 
-### 質問
+## 質問してみる
 ```
 remixは既存のフレームワークと何が違うのですか？日本語で箇条書きにしてくださ
 ```
