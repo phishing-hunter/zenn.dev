@@ -12,7 +12,7 @@ published: false
 
 ## はじめに
 ChatGPTを使って最新の情報を調べようとした時に困った事はないでしょうか？
-ChagGPTの言語モデルは2021年までのデータを学習して作られているため、最新の情報について質問しても正しく答えられない事がほとんどです。
+現在のChatGPTの言語モデル(gpt-3.5-turbo-0301)は2021年9月までのデータを学習して作られており、最新の情報について質問しても正しく答えられない事がほとんどです。
 :::message
 最近出たばかりのフレームワークについては知りません。
 :::
@@ -20,7 +20,7 @@ ChagGPTの言語モデルは2021年までのデータを学習して作られて
 今回はChatGPTに新しい知識をあたえて、受け答えができるようなチャットボットの作成方法について解説していきます。
 
 ## 学習データの準備と取り込み
-はじめにRemixのソースコードをクローンします。
+はじめに学習データとしてRemixのソースコードをクローンします。
 ```bash
 !git clone https://github.com/remix-run/remix
 !rm -rf remix/.git
@@ -67,32 +67,33 @@ from langchain.vectorstores.base import VectorStore
 from langchain.chains import ChatVectorDBChain
 from langchain.llms import OpenAIChat
 
+# 標準出力にストリーミングで回答を出力するためのコールバック関数
 manager = CallbackManager([StreamingStdOutCallbackHandler()])
 
 streaming_llm = OpenAIChat(streaming=True, callback_manager=manager, verbose=True, temperature=0)
 question_gen_llm = OpenAIChat(temperature=0, verbose=True, callback_manager=manager)
-
+# チャット履歴と新しい質問を取り込み、独立した質問を生成するプロンプト
 question_generator = LLMChain(llm=question_gen_llm, prompt=CONDENSE_QUESTION_PROMPT)
+# ドキュメントとスタンドアローンの質問を取り込み、質問に答えるためのプロンプトを渡す
 doc_chain = load_qa_chain(streaming_llm, chain_type="stuff", prompt=QA_PROMPT)
-
+# ベクトルデータベースからプロンプトを生成する
 qa = ChatVectorDBChain(vectorstore=vectorstore, combine_docs_chain=doc_chain, question_generator=question_generator)
 ```
 
 ChatGPTのAPIに与えられるプロンプトは以下の手順で作成されます。
-1. クエリの埋め込みを作成。
-1. 埋め込み空間で最も類似した文書を見つける。
-1. これら文書を元のクエリと共に言語モデルに渡して、回答を生成。
+1. 質問内容から検索クエリを生成する
+1. 埋め込み空間で最も類似した文書を見つける
+1. これら文書を元のクエリと共に言語モデルに渡して、回答を生成する
 ```python
 question = "remixは既存のフレームワークと何が違うのですか？日本語で箇条書きにしてください"
 result = qa({"question": question, "chat_history": []})
 print(result["answer"])
 ```
 
-* 質問
+### 質問
 ```
 remixは既存のフレームワークと何が違うのですか？日本語で箇条書きにしてくださ
 ```
-
 
 以下のコンテキストを要約した箇条書きとして回答が出力されます。
 ```python
@@ -130,7 +131,7 @@ This repository contains the Remix source code. This repo is a work in progress,
 For documentation about Remix, please
 ```
 
-* 最終的な回答
+## 最終的な回答
 ```
 - Remixは、標準的なAPIを使用しやすくすることを目的としています。
 - Remixは、Web開発全般について学ぶことができます。
@@ -150,5 +151,4 @@ ChatGPTは過去のデータを使って学習しているため、最新の情�
 
 ## 参考
 https://note.com/npaka/n/nf74a29c1d25d
-
-
+https://www.nogawanogawa.com/entry/faiss
