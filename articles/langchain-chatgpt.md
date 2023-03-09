@@ -86,8 +86,7 @@ ChatGPTのAPIに与えられるプロンプトは以下の手順で作成され�
 1. これら文書を元のクエリと共に言語モデルに渡して、回答を生成する
 ```python
 question = "remixは既存のフレームワークと何が違うのですか？日本語で箇条書きにしてください"
-result = qa({"question": question, "chat_history": []})
-print(result["answer"])
+qa({"question": question, "chat_history": []})
 ```
 
 ## 質問してみる
