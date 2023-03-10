@@ -7,7 +7,7 @@ topics:
  - chatgpt
  - openai
  - remix
-published: false
+published: true
 ---
 
 ## はじめに
