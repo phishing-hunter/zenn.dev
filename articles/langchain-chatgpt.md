@@ -1,5 +1,5 @@
 ---
-title: "ChatGPTに新しい知識をあたえる方法"
+title: "ChatGPTで社内用チャットボットを作った"
 emoji: "📚"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: 
