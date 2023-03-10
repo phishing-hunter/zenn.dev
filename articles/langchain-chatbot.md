@@ -6,6 +6,7 @@ topics:
  - langchain
  - chatgpt
  - openai
+ - gpt
  - remix
 published: true
 ---
@@ -139,6 +140,22 @@ For documentation about Remix, please
 - Remixは、モデルについてはユーザーに任せています。
 - Remixは、Fetch APIに関するヘルパーを提供しています。
 - Remixは、Node.jsサーバーおよびCloudflare Workersなどの非Node.js環境にデプロイできます。
+```
+
+## API利用の注意点
+Web上でのChatGPTについては、（2023年3月10日現在は）引き続きはオプトアウト形式の仕様(申請することで再学習に利用されない)ですが、ChatGPI APIはオプトイン形式(申請しない限り再学習には利用されない)のため実質モデルの改善に利用されないことになりました。(法的監視で30日は保管されます)
+API経由での実行は再学習に利用されないため、OpenAI以外の第三者に漏洩する心配が減ったので、クローズドな情報をChatGPTで活用するハードルが下がったように思われます。
+APIの価格については(gpt-3.5-turbo)は1000トークンあたり0.002ドルで、埋め込みモデル(text-embedding-ada-002)は1000トークンあたり0.0004ドルという計算なので比較的安価ですが、大量のファイルに対して埋め込みモデルを作成しようとすると予想以上にお金がかかります。
+トークン数があらかじめ予測不能な場合は以下のように事前に価格を計算して実行するかどうかの判断を行うのが良いでしょう。
+```python
+import tiktoken
+
+encoding = tiktoken.encoding_for_model("text-embedding-ada-002")
+text = ""
+for doc in documents:
+    text += doc.page_content.replace("\n", " ")
+token_count = len(encoding.encode(text, allowed_special='all'))
+print(f"予想価格: {token_count*0.00000004} USD")
 ```
 
 ## まとめ
