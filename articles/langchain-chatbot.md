@@ -28,6 +28,13 @@ ChatGPTを使って最新の情報を調べようとした時に困った事は�
 ```
 
 以下のようにremixリポジトリのファイルをテキストファイルとして取り込みます。
+
+```mermaid
+graph TD;
+  A[一連の文書を取り込む] --> B[それらを小さなチャンクに分割];
+  B --> C[文書ごとに埋め込みを作成];
+```
+
 ```python
 import os
 import pickle
@@ -82,9 +89,14 @@ qa = ChatVectorDBChain(vectorstore=vectorstore, combine_docs_chain=doc_chain, qu
 ```
 
 ChatGPTのAPIに与えられるプロンプトは以下の手順で作成されます。
-1. 質問内容から検索クエリを生成する
-1. 埋め込み空間で最も類似した文書を見つける
-1. これら文書を元のクエリと共に言語モデルに渡して、回答を生成する
+
+```mermaid
+graph TD;
+  A[質問内容から言語モデルを使って検索クエリを生成] --> B[埋め込み空間で最も類似した文書を検索];
+  B --> C[これら文書を質問内容と結合];
+  C --> D[結果を言語モデルに渡して回答を生成];
+```
+
 ```python
 question = "remixは既存のフレームワークと何が違うのですか？日本語で箇条書きにしてください"
 qa({"question": question, "chat_history": []})
