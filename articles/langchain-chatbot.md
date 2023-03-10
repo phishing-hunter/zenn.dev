@@ -84,7 +84,7 @@ question_gen_llm = OpenAIChat(temperature=0, verbose=True, callback_manager=mana
 question_generator = LLMChain(llm=question_gen_llm, prompt=CONDENSE_QUESTION_PROMPT)
 # ドキュメントとスタンドアローンの質問を取り込み、質問に答えるためのプロンプトを渡す
 doc_chain = load_qa_chain(streaming_llm, chain_type="stuff", prompt=QA_PROMPT)
-# ベクトルデータベースからプロンプトを生成する
+# 埋め込みモデルからプロンプトを生成する
 qa = ChatVectorDBChain(vectorstore=vectorstore, combine_docs_chain=doc_chain, question_generator=question_generator)
 ```
 
@@ -110,7 +110,7 @@ remixは既存のフレームワークと何が違うのですか？
 
 以下のコンテキストを要約した箇条書きとして回答が出力されます。
 ```python
-# 質問に関連したコンテキストをベクターストアから取得
+# 質問に関連したコンテキストを埋め込みモデルから取得
 for context in vectorstore.similarity_search(question):
     print(context)
 ```
