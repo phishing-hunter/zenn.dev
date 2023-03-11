@@ -35,6 +35,7 @@ graph TD;
   B --> C[文書ごとに埋め込みを作成];
 ```
 
+OpenAI APIキーを記述した以下のコードを使って文書の取り込みを行います。
 ```python
 import os
 import pickle
@@ -43,7 +44,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.vectorstores.faiss import FAISS
 
-openai_api_key= "<OPENAI API KEY>"
+openai_api_key= "<OPENAI API KEY を記述してください>"
 os.environ["OPENAI_API_KEY"] = openai_api_key
 
 def ingest_docs(dir_name):
