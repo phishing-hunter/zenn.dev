@@ -6,7 +6,8 @@ topics:
 - langchain
 - chatgpt
 - openai
-- docker
+- ai
+- python
 published: false
 ---
 
