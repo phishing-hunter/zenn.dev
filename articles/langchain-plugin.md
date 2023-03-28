@@ -104,11 +104,12 @@ Kulanaのオンラインショッピングプラットフォームでは、
 ## さらに高度なプラグインを作るには
 次のようにIPアドレスに関連した情報を調べるAPIをFastAPIで実装し、OpenAPI SpecをAIPluginToolに読み込ませました。  
 OpenAIにOpenAPIの仕様を読んでもらう必要があるので、出来るだけ分かりやすくAPIの使い方や入力されるパラメータの説明を入れないといけません。  
+Zapierが公開しているプラグインである[Zapier Natural Language Actions (NLA)](https://redocly.github.io/redoc/?url=https://nla.zapier.com/api/v1/dynamic/openapi.json#section/Auth-lessa-name%22auth%22greaterlessagreater)はAPIの仕様やコマンドの実行例まで非常に丁寧に書かれています。(現状の仕様ではトークン数が足りないのでAIPluginToolから実行しようとするとエラーになります)
 @[tweet](https://twitter.com/hunter_phishing/status/1640354834527428608)
 サンプルコードはこちらに整理して置いてあります。
 https://github.com/tatsu-i/chatbot-sample
 
-複数のAPIやツールを読み込ませている場合には、「どのAPIを使って、どうやってAPIを実行するのか」を説明してあげると精度が上がりました。  
+langchainのエージェントに複数のAPIやツールを読み込ませている場合には、「どのAPIを使って、どうやってAPIを実行するのか」を説明してあげると精度が上がりました。  
 ```
 After generating the curl command to run the API from the OpenAPI Spec, examine the information related to the IP address below.
 
