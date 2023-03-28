@@ -12,7 +12,7 @@ published: false
 ---
 
 ## はじめに
-ChatGPTの機能を拡張するためのツール[ChatGPT plugins](https://openai.com/blog/chatgpt-plugins)が一部の開発者向けにリリースされました。  
+ChatGPTの機能を拡張するためのツール [ChatGPT plugins](https://openai.com/blog/chatgpt-plugins) が一部の開発者向けにリリースされました。  
 :::message
 まだ2023年3月28日時点ではアルファー版であり一般には公開されていません。
 :::
