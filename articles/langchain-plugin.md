@@ -40,6 +40,15 @@ ChatGPTの機能を拡張するためのツール[ChatGPT plugins](https://opena
 }
 ```
 
+以下は現在公開されているプラグインです  
+* https://www.klarna.com/.well-known/ai-plugin.json
+* https://www.joinmilo.com/.well-known/ai-plugin.json
+* https://api.speak.com/.well-known/ai-plugin.json
+* https://www.wolframalpha.com/.well-known/ai-plugin.json
+* https://server.shop.app/.well-known/ai-plugin.json
+* https://slack.com/.well-known/ai-plugin.json
+* https://zapier.com/.well-known/ai-plugin.json
+
 ChatGPTやGPT4はこれらの仕様書を理解し、必要に応じたAPIを呼び出してくれるという仕組みのようですね。  
 
 以下は仕様書を読み込んで質問に答えるためのサンプルコードです。
@@ -49,7 +58,8 @@ from langchain.agents import load_tools, initialize_agent
 from langchain.tools import AIPluginTool
 
 # プラグインを読み込む
-tool = AIPluginTool.from_plugin_url("https://www.klarna.com/.well-known/ai-plugin.json")
+plugin_url = "https://www.klarna.com/.well-known/ai-plugin.json"
+tool = AIPluginTool.from_plugin_url(plugin_url)
 
 # エージェントの準備
 llm = ChatOpenAI(temperature=0)
