@@ -14,7 +14,7 @@ published: false
 ## はじめに
 ChatGPTの機能を拡張するためのツール [ChatGPT plugins](https://openai.com/blog/chatgpt-plugins) が一部の開発者向けにリリースされました。  
 :::message
-2023年3月29日時点ではアルファー版であり一般には公開されていません。
+2023年3月30日時点ではアルファー版であり一般には公開されていません。
 :::
 しかし、プラグインを作るための仕様は公開されているので、今のうちに使い方を確認しておいて一般公開されたら自作プラグインをすぐに実行できるように準備しておきましょう。
 
@@ -102,10 +102,8 @@ Kulanaのオンラインショッピングプラットフォームでは、
 ```
 
 ## さらに高度なプラグインを作るには
-次のようにIPアドレスに関連した情報を調べるAPIをFastAPIで実装し、OpenAPI SpecをAIPluginToolに読み込ませました。  
-OpenAIにOpenAPIの仕様を読んでもらう必要があるので、出来るだけ分かりやすくAPIの使い方や入力されるパラメータの説明を入れないといけません。  
-Zapierが公開しているプラグインである[Zapier Natural Language Actions (NLA)](https://redocly.github.io/redoc/?url=https://nla.zapier.com/api/v1/dynamic/openapi.json#section/Auth-lessa-name%22auth%22greaterlessagreater)はAPIの仕様やコマンドの実行例まで非常に丁寧に書かれています。(現状の仕様ではトークン数が足りないのでAIPluginToolから実行しようとするとエラーになります)
-@[tweet](https://twitter.com/hunter_phishing/status/1640354834527428608)
+次のようにIPアドレスに関連した情報を調べるAPIをFastAPIで実装し、OpenAPI SpecをAIPluginToolに読み込ませてみました。  
+@[tweet](https://twitter.com/hunter_phishing/status/1640704330222415873)
 サンプルコードはこちらに整理して置いてあります。
 https://github.com/tatsu-i/chatbot-sample
 
@@ -115,8 +113,16 @@ After generating the curl command to run the API from the OpenAPI Spec, examine 
 
 IP: {{ip}}
 ```
+OpenAIにOpenAPIの仕様を読んでもらう必要があるので、出来るだけ分かりやすくAPIの使い方や入力されるパラメータの説明を入れないといけません。  
+Zapierが公開しているプラグインである[Zapier Natural Language Actions (NLA)](https://redocly.github.io/redoc/?url=https://nla.zapier.com/api/v1/dynamic/openapi.json#section/Auth-lessa-name%22auth%22greaterlessagreater)はAPIの仕様やコマンドの実行例まで非常に丁寧に書かれています。
+:::message
+Zapierが公開しているOpenAPIの仕様は`gpt-3.5-turbo`の最大入力トークン数を超えてしまうのでAIPluginToolから実行しようとするとエラーになります
+:::
 
 ## まとめ
+今回はChatGPTプラグインを実装するために必要なOpenAPI仕様を準備する方法について説明しました。
+現状は`gpt-3.5-turbo`モデルを使っているとOpenAPIの仕様の文字数が多くなると、入力可能なトークン数の制限に引っかかってしまい期待した動作をしない場合がありました。  
+これらの問題を解決するためには`code-davinci-002`などの大容量な入力トークン数を持ったモデルを使って大量のコンテキストを読み込ませる必要があります。  
 この記事を読んで、少しでもお役に立てたなら幸いです。何か質問やご意見がありましたら、お気軽にご連絡ください。
 
 ## 参考
