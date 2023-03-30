@@ -8,7 +8,7 @@ topics:
 - openai
 - ai
 - python
-published: false
+published: true
 ---
 
 ## はじめに
