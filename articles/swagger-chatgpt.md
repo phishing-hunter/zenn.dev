@@ -130,6 +130,7 @@ with open(sys.argv[1]) as f:
 
 ログが保存正しくされていることを確認したら以下のようにSwaggerドキュメントを生成します。
 ```bash
+export OPENAI_API_KEY=<OPENAIのAPIキー>
 python generate.py mitmproxy.log > openapi.yaml
 ```
 
