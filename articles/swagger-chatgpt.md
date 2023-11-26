@@ -1,5 +1,5 @@
 ---
-title: "ChatGPTを使って通信ログからSwagger(OpenAPI)の仕様を生成する"
+title: "ChatGPTを使って通信ログからSwagger(OpenAPI)形式の仕様を生成する"
 emoji: "😽"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["openai", "swagger", "api", "python"]
