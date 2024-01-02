@@ -31,7 +31,7 @@ Slackのコミュニケーションにおける分析、特に参加度のバラ
 重要なのは、分析から得られた洞察を、チーム全体の利益のために使うことです。
 
 
-## 会話分析を個人スキル評価に活用する危険性について
+## 🔥 会話分析を個人スキル評価に活用する危険性について
 Slackコミュニケーションと個人スキル評価を同時に行うことにはいくつかの危険性があります。以下に主なリスクを述べます：
 
 1. **プライバシーの侵害**: 個人のチャット履歴(特にDMやプライベートチャンネル)を分析することは、プライバシーの侵害となり得ます。従業員は、自分のコミュニケーションが常に監視されていると感じる可能性があります。
@@ -77,19 +77,33 @@ cd slack-team-analyzer
 pip install -r requirements.txt
 ```
 
-### Slack Appsの作成
-[Slack Apps](https://api.slack.com/apps/)を作成し以下の権限を追加します。
-トークンはそれぞれ`SLACK_BOT_TOKEN`と`SLACK_USER_TOKEN`という名前で設定します。  
-### 必要な権限
-* SLACK_BOT_TOKEN
-    * channels:history
-    * users:read
+### Slack Appsの作成と設定
+まず、[Slack Apps](https://api.slack.com/apps/)にアクセスして新しいアプリを作成します。
+作成したら、「Features」のセクションに移動し、「OAuth & Permissions」を選択します。ここで、「Scopes」内の以下の権限を追加します。
 
-* SLACK_USER_TOKEN
-    * search:read
-    * channels:history
+* Bot Token Scopesに必要な権限：
+    * channels:history - チャンネルのメッセージ履歴を読み取ることができます。
+    * users:read - ユーザー情報を読み取ることができます。
 
-## 使い方
+* User Token Scopesに必要な権限：
+    * search:read - メッセージやファイルを検索することができます。
+    * channels:history - チャンネルのメッセージ履歴を読み取ることができます。
+
+設定が完了したらワークスペースにSlack Appsをインストールし、`SLACK_BOT_TOKEN`と`SLACK_USER_TOKEN`という名前の環境変数を設定します。
+それぞれのトークンは、「OAuth Tokens for Your Workspace」に記載されています。
+以下のコマンドを実行し、適切な値に置き換えてください。  
+```bash
+export SLACK_BOT_TOKEN="あなたのボットトークン"
+export SLACK_USER_TOKEN="あなたのユーザートークン"
+```
+
+### OpenAI APIキーの設定
+次に、OpenAIのAPIキーを設定します。[OpenAIのウェブサイト](https://openai.com/)からAPIキーを取得し、以下のコマンドを実行して環境変数に設定します。
+APIキーの値は適切なものに置き換えてください。
+```bash
+export OPENAI_API_KEY="あなたのOpenAI_APIキー"
+```
+
 ### チャンネルを分析する
 チャンネルIDを指定し、チャンネルのメッセージをダンプします。
 ```bash
