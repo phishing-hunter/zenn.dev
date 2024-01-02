@@ -3,7 +3,7 @@ title: "ChatGPTを使ってSlackの心理的安全性を評価する"
 emoji: "👋"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: ["openai", "slack", "python"]
-published: false
+published: true
 ---
 ## はじめに
 
