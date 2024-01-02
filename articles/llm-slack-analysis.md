@@ -110,13 +110,13 @@ APIキーの値は適切なものに置き換えてください。
 export OPENAI_API_KEY="あなたのOpenAI_APIキー"
 ```
 
-### チャンネルを分析する
+## チャンネルを分析する
 チャンネルIDを指定し、チャンネルのメッセージをダンプします。
 ```bash
 python dump_channel.py <チャンネルID>
 ```
 
-会話の分析
+### 会話の分析
 ```bash
 python analysis_messages.py channel_messages.jsonl
 ユーザー別総メッセージ数: {'<@U067Z40EWBZ>': 284, '<@U03RM7Z5GKX>': 219}
@@ -132,23 +132,23 @@ quality_and_quantity_of_feedback: リクエストに対するフィードバッ�
 summary: 全体として、チャット履歴は一方のユーザーからの具体的な要求に基づいて、他方が情報を提供する形式で進行しています。意見の多様性は少なく、対話は主に情報交換に焦点を当てています。決定の透明性は高く、フィードバックの質は良好ですが、対話の量は限られています
 ```
 
-### 特定のメンバーが参加していたスレッドを分析する
+## 特定のメンバーが参加していたスレッドを分析する
 メンバーIDは「メンバーIDをコピー」のボタンから取得できます。
 ```bash
 python dump_user.py <メンバーID>
 ```
 
-会話の分析
+### 会話の分析
 ```bash
 python analysis_messages.py user_<メンバーID>_messages.jsonl
 ```
 
-### チャンネルの人間関係図を作成する
+## チャンネルの人間関係図を作成する
 ```bash
 python network_user.py channel_messages.jsonl
 ```
 
-### メンバーのプロファイリング
+## メンバーのプロファイリング
 メンバーのプロファイリング結果をcsvに保存します。メンバーIDが重複する場合は新しい値で更新されます。  
 以下の観点でメンバーのプロファイリングを行います。
 * **コミュニケーションスタイル**: 言葉遣い、専門用語の使用頻度、疑問形式の使用など、コミュニケーションスタイルの特徴を分析します。
@@ -165,7 +165,7 @@ python profiling_user.py user_<メンバーID 2>_messages.jsonl <メンバーID 
 python profiling_user.py user_<メンバーID 3>_messages.jsonl <メンバーID 3> output.csv
 ```
 
-### 特定のスレッドを分析する
+## 特定のスレッドを分析する
 スレッドのリンクを分析します。
 ```bash
 python analysis_thread.py 'https://xxxxxxxx.slack.com/archives/CXXXXXXXX/pxxxxxxxx'
