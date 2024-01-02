@@ -165,23 +165,6 @@ python profiling_user.py user_<メンバーID 2>_messages.jsonl <メンバーID 
 python profiling_user.py user_<メンバーID 3>_messages.jsonl <メンバーID 3> output.csv
 ```
 
-## 特定のスレッドを分析する
-スレッドのリンクを分析します。
-```bash
-python analysis_thread.py 'https://xxxxxxxx.slack.com/archives/CXXXXXXXX/pxxxxxxxx'
-
-ユーザー別総メッセージ数: {'<@U067Z40EWBZ>': 5, '<@U03RM7Z5GKX>': 1}
-ユーザー別の平均応答時間（分）: {'<@U03RM7Z5GKX> -> <@U067Z40EWBZ>': 0.025330166666666667}
-会話の総期間（時間）: 0.021559775
-総メッセージ数: 6
-message_clarity: メッセージは比較的明確ですが、情報が少し長く、繰り返しや余分な情報が含まれています。
-participation_balance: 2人のメンバーが議論に参加していますが、<@U067Z40EWBZ>のメッセージが長く、<@U03RM7Z5GKX>の参加が少ないように見えます。
-opinion_diversity: 意見の多様性は見られません。
-decision_making_transparency: 決定のプロセスは明示されていません。
-quality_and_quantity_of_feedback: 情報の提供は詳細であり、十分なフィードバックが行われています。
-summary: チャット履歴は比較的明確であり、情報提供は詳細ですが、議論に参加するメンバーのバランスが改善されると良いでしょう。意見の多様性や決定の透明性を向上させることも重要です
-```
-
 ## まとめ
 この記事では、Slackのチャット履歴を分析するツールについて説明しました。このツールは、コミュニケーションのパターンを分析し、心理的安全性を評価するための指標を提供します。
 具体的には、レスポンス時間、メッセージの明瞭さ、参加度のバランス、意見の多様性、決定過程の透明性、フィードバックの質と量を評価します。
