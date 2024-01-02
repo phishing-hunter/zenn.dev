@@ -117,6 +117,7 @@ python dump_channel.py <チャンネルID>
 ```
 
 ### 会話の分析
+先ほどダンプしたチャンネルのメッセージ履歴からチャンネルのメッセージを分析します。
 ```bash
 python analysis_messages.py channel_messages.jsonl
 ユーザー別総メッセージ数: {'<@U067Z40EWBZ>': 284, '<@U03RM7Z5GKX>': 219}
@@ -139,11 +140,13 @@ python dump_user.py <メンバーID>
 ```
 
 ### 会話の分析
+先ほどダンプしたメッセージ履歴から特定のメンバーが関与した会話を分析します。
 ```bash
 python analysis_messages.py user_<メンバーID>_messages.jsonl
 ```
 
 ## チャンネルの人間関係図を作成する
+メッセージの頻度からメンバーのつながりや関係性を推測しグラフとして出力します。
 ```bash
 python network_user.py channel_messages.jsonl
 ```
