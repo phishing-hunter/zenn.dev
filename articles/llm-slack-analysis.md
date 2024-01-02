@@ -70,14 +70,17 @@ Slackコミュニケーションと個人スキル評価を同時に行うこと
 6. **フィードバックの質と量**: チームメンバーが互いにどの程度助言やフィードバックを提供しているかを検討します。適切なフィードバックは効率的なコミュニケーションを促進します。
 
 ## インストール
+### 必要なライブラリのインストール
 ```bash
+git clone https://github.com/tatsu-i/slack-team-analyzer
+cd slack-team-analyzer
 pip install -r requirements.txt
 ```
 
-## 使い方
-
-はじめに[Slack Apps](https://api.slack.com/apps/)を作成し以下の権限を追加します。
+### Slack Appsの作成
+[Slack Apps](https://api.slack.com/apps/)を作成し以下の権限を追加します。
 トークンはそれぞれ`SLACK_BOT_TOKEN`と`SLACK_USER_TOKEN`という名前で設定します。  
+### 必要な権限
 * SLACK_BOT_TOKEN
     * channels:history
     * users:read
@@ -86,6 +89,7 @@ pip install -r requirements.txt
     * search:read
     * channels:history
 
+## 使い方
 ### チャンネルを分析する
 チャンネルIDを指定し、チャンネルのメッセージをダンプします。
 ```bash
@@ -159,5 +163,5 @@ summary: チャット履歴は比較的明確であり、情報提供は詳細�
 ```
 
 ## まとめ
-
+この記事では、Slackのチャット履歴を分析するツールについて説明しました。このツールは、コミュニケーションのパターンを分析し、心理的安全性を評価するための指標を提供します。具体的には、レスポンス時間、メッセージの明瞭さ、参加度のバランス、意見の多様性、決定過程の透明性、フィードバックの質と量を評価します。これらの指標は、チームのコミュニケーションを改善し、より協力的な環境を促進するための洞察を提供します。しかし、これらの分析は慎重に行う必要があり、個々のメンバーを評価したり、監視することではなく、チーム全体の利益のために使うことが重要です。
 
