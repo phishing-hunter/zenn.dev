@@ -79,7 +79,7 @@ pip install -r requirements.txt
 
 ### Slack Appsの作成と設定
 まず、[Slack Apps](https://api.slack.com/apps/)にアクセスして新しいアプリを作成します。
-作成したら、「Features」のセクションに移動し、「OAuth & Permissions」を選択します。ここで、「Scopes」内の以下の権限を追加します。
+作成したら「Features」のセクションに移動し、「OAuth & Permissions」を選択します。ここで、「Scopes」内の以下の権限を追加します。
 
 * Bot Token Scopesに必要な権限：
     * channels:history - チャンネルのメッセージ履歴を読み取ることができます。
@@ -88,9 +88,13 @@ pip install -r requirements.txt
 * User Token Scopesに必要な権限：
     * search:read - メッセージやファイルを検索することができます。
     * channels:history - チャンネルのメッセージ履歴を読み取ることができます。
+![](/images/llm-slack-analysis/slackapp0.png )
 
 設定が完了したらワークスペースにSlack Appsをインストールし、`SLACK_BOT_TOKEN`と`SLACK_USER_TOKEN`という名前の環境変数を設定します。
 それぞれのトークンは、「OAuth Tokens for Your Workspace」に記載されています。
+![](/images/llm-slack-analysis/slackapp1.png )
+ワークスペースにインストールしようとすると以下のように許可を求められるので「許可する」をクリックします。
+![](/images/llm-slack-analysis/slackapp2.png )
 以下のコマンドを実行し、適切な値に置き換えてください。  
 ```bash
 export SLACK_BOT_TOKEN="あなたのボットトークン"
