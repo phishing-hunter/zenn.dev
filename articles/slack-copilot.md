@@ -11,7 +11,7 @@ published: false
 
 ## はじめに
 OpenAI AssistantsAPI を使用すると、独自のアプリケーションに AI アシスタントを組み込むことができます。
-また3/14にストリーミングAPIが追加され、ChatGPTのようなリアルタイムに応答ができるチャットボットを構築できるようになりました。
+3/14にストリーミングAPIが追加され、ChatGPTのようなリアルタイムに応答ができるチャットボットを構築できるようになりました。
 今回は AssistantsAPI を使用して Slack 上で AI とチャットができる環境を構築したので、その構築手順を書いてみたいと思います。
 GPTs も便利ですが、Slack 上でのチャットを可能にすることで、ChatGPT のプランに関係なくワークスペースの全てのメンバーが AI アシスタントを使用できます。(GPTs と違って従量課金になるのでその点は注意が必要です。)
 
@@ -181,3 +181,4 @@ slackではChatGPTと違い複数人が参加して会話できるため、ス�
 ## 参考
 https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 https://qiita.com/Cartelet/items/f64787cd0ae57c0a6830
+https://zenn.dev/yutakobayashi/articles/gpts-notion-api
