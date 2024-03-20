@@ -22,7 +22,7 @@ https://github.com/tatsu-i/slack-copilot
 OpenAI の Assistants API は現在まだベータ版です。
 今後も実装方法やAPIが変更される可能性がありますので、最新の公式ドキュメントを参照してください。
 :::
-本記事はこちらの構成を参考にしております。
+構築したアプリケーションはこちらの構成を参考にしております。
 https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 
 ## 前提
@@ -110,7 +110,6 @@ sequenceDiagram
 ```bash
 cp env.sample .envrc
 direnv allow
-
 ```
 
 serverlessフレームワークのインストール
@@ -175,6 +174,9 @@ sls deploy
 今回はGPTsのような機能をslackで利用するためのアプリケーションを構築しました。
 slackではChatGPTと違い複数人が参加して会話できるため、スレッドの要約や会話の取りまとめなどのタスクもこなしてくれます。
 実際の業務では、社内のナレッジ管理ツールと接続することでナレッジ検索アシスタントが簡単に構築できそうですね。
+
+こちらはインシデント対応時のアシスタント活用のデモ動画です。
+![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/demo.gif)
 
 ## 参考
 https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
