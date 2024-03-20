@@ -111,20 +111,22 @@ sequenceDiagram
 ```
 
 ## デプロイ方法
-環境変数の読み込み
+はじめにレポジトリをクローンして環境変数の読み込みを行います。
 ```bash
+git clone https://github.com/tatsu-i/slack-copilot
+cd slack-copilot
 cp env.sample .envrc
 direnv allow
 ```
 
-serverlessフレームワークのインストール
+serverlessフレームワークをインストールします。
 ```bash
 npm install -g serverless
 serverless plugin install -n serverless-api-gateway-throttling
 serverless plugin install -n serverless-prune-plugin
 ```
 
-デプロイ
+デプロイを実行します。
 ```bash
 sls deploy
 ```
