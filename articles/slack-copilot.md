@@ -31,7 +31,8 @@ https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 詳しい解説は省略しますので、概要は公式ドキュメントを参照してください。
 
 * [Serverless (Lambda)](https://www.serverless.com/)
-* [Slack App](https://qiita.com/namutaka/items/233a83100c94af033575)
+* [OpenAI Assistant API Streaming](https://platform.openai.com/docs/assistants/overview?context=with-streaming)
+* [Slack App](https://api.slack.com/lang/ja-jp)
 
 ## 動作イメージ
 ### 1. Function calling 🤖
@@ -42,6 +43,10 @@ https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 ![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/assistant.gif)
 
 ## 動作フロー
+Slackアプリケーションの動作フローです。
+アプリケーションの実装パターンはこちらの記事が参考になります。
+https://qiita.com/namutaka/items/233a83100c94af033575
+
 * Events API
 ```mermaid
 sequenceDiagram
@@ -152,7 +157,7 @@ export WEBHOOK_URL="https://xxxxxxxxxx.execute-api.ap-northeast-1.amazonaws.com/
 envsubst < manifest.yaml
 ```
 
-上記で出力された内容をApp Manifestの画面に貼り付けて保存するとslackアプリケーションの設定が完了します。
+[こちら](https://api.slack.com/apps)から適当な名前のSlackアプリケーションを作成し、上記で出力された内容をApp Manifestの画面に貼り付けて保存するとslackアプリケーションの設定が完了します。
 ![App Manifest](/images/slack-copilot/AppManifest.png)
 
 以下の環境変数を設定してから再デプロイを行なってください。
