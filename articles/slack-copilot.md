@@ -1,5 +1,5 @@
 ---
-title: "Slack Copilotを作った話"
+title: "Assistant API streaming でSlack Copilotを作った"
 emoji: "👏"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics:
