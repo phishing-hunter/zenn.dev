@@ -1,5 +1,5 @@
 ---
-title: "Assistant API streaming でSlack Copilotを作った"
+title: "Assistants API streaming でSlack Copilotを作った"
 emoji: "👏"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics:
@@ -12,7 +12,7 @@ published: false
 ## はじめに
 OpenAI AssistantsAPI を使用すると、独自のアプリケーションに AI アシスタントを組み込むことができます。
 3/14にストリーミングAPIが追加され、ChatGPTのようなリアルタイムに応答ができるチャットボットを構築できるようになりました。
-今回は AssistantsAPI を使用して Slack 上で AI とチャットができる環境を構築したので、その構築手順を書いてみたいと思います。
+今回は AssistantsAPI (Streaming) を使用して Slack 上で AI とチャットができる環境を構築したので、その構築手順を書いてみたいと思います。
 GPTs も便利ですが、Slack 上でのチャットを可能にすることで、ChatGPT のプランに関係なくワークスペースの全てのメンバーが AI アシスタントを使用できます。(GPTs と違って従量課金になるのでその点は注意が必要です。)
 
 実装コードは以下のリポジトリに公開しております。
@@ -31,7 +31,7 @@ https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 詳しい解説は省略しますので、概要は公式ドキュメントを参照してください。
 
 * [Serverless (Lambda)](https://www.serverless.com/)
-* [OpenAI Assistant API Streaming](https://platform.openai.com/docs/assistants/overview?context=with-streaming)
+* [OpenAI Assistants API Streaming](https://platform.openai.com/docs/assistants/overview?context=with-streaming)
 * [Slack App](https://api.slack.com/lang/ja-jp)
 
 ## 動作イメージ
