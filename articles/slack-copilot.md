@@ -42,6 +42,13 @@ https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 ### 3. GPT mentions(アシスタントの切り替え)
 ![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/assistant.gif)
 
+## アーキテクチャ
+今回構築したアプリケーションのアーキテクチャは以下のようになっています。
+SNSを使って再度Lambda関数を呼び出しているのはSlackアプリケーションから呼び出されるWebhookは3秒以内にレスポンスを返さなければならないためです。
+まず1つ目のLambda関数がslackアプリケーションから送信されたメッセージをSNSに送信します。
+その後2つ目のLambda関数がSNS経由で呼び出されOpenAIのAPI呼び出しを非同期に実行します。
+![アーキテクチャ](/images/slack-copilot/diagram.png)
+
 ## 動作フロー
 Slackアプリケーションの動作フローです。
 アプリケーションの実装パターンはこちらの記事が参考になります。
@@ -111,13 +118,14 @@ sequenceDiagram
 ```
 
 ## デプロイ方法
-はじめにレポジトリをクローンして環境変数の読み込みを行います。
+はじめにリポジトリをクローンして環境変数の読み込みを行います。
 ```bash
 git clone https://github.com/tatsu-i/slack-copilot
 cd slack-copilot
 cp env.sample .envrc
-direnv allow
+source .envrc
 ```
+`.envrc`は主にFunction Callingで使用するツールのAPIキーや設定のための環境変数が定義されていますが今はすべて空のままで大丈夫です。
 
 serverlessフレームワークをインストールします。
 ```bash
