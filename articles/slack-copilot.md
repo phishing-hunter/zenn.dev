@@ -22,6 +22,8 @@ https://github.com/tatsu-i/slack-copilot
 OpenAI の Assistants API は現在まだベータ版です。
 今後も実装方法やAPIが変更される可能性がありますので、最新の公式ドキュメントを参照してください。
 :::
+本記事はこちらの構成を参考にしております。
+https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 
 ## 前提
 
