@@ -6,7 +6,7 @@ topics:
  - AWS
  - openai
  - slack
-published: false
+published: true
 ---
 
 ## はじめに
