@@ -35,6 +35,7 @@ https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 * [Slack App](https://api.slack.com/lang/ja-jp)
 
 ## 動作イメージ
+以下のようにslackでもGPTsと同じようなことができるようになります。
 ### 1. Function calling 🤖
 ![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/notion_search.gif)
 ### 2. Code Interpreter 🐍
@@ -136,6 +137,7 @@ serverless plugin install -n serverless-prune-plugin
 
 デプロイを実行します。
 ```bash
+aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 sls deploy
 ```
 実行すると以下のように出力されますのでエンドポイントのURLをコピーします。
@@ -185,8 +187,56 @@ export OPENAI_API_KEY="OpenAIのAPIキーを設定します"
 sls deploy
 ```
 
+## 独自のFunctionやアシスタントを作成する方法
+
+Function Callingから呼び出す関数は拡張することが可能です。
+まず`src/scripts/function/`に以下のようなpythonファイル`my_youtube_transcript.py`を作成してください。
+```python
+import os
+import sys
+import logging
+from youtube_transcript_api import YouTubeTranscriptApi
+
+def run(url, language=["ja"]):
+    video_id = url.split("=")[-1] if "=" in url else url.split("/")[-1]
+    # 字幕リストを取得
+    transcript_list = YouTubeTranscriptApi.list_transcripts(video_id)
+    # 英語字幕は"en"に変更
+    transcript = transcript_list.find_generated_transcript(language)
+    text = ""
+    transcript_text = ""
+    for d in transcript.fetch():
+        text = d["text"]
+        transcript_text += f"{text}\n"
+    return transcript_text
+```
+
+次に`src/scripts/data/assistant.yml`に以下のように追記します。
+Yamlファイルの定義はGPTsで作成するアシスタントのようなものです。
+```yaml
+youtube_transcript:
+  name: Youtubeアシスタント
+  instructions: |
+    Youtube URLから字幕を生成し質問に回答するアシスタントです
+  tools:
+    - function:
+        description: Open Youtube URL
+        name: my_youtube_transcript
+        parameters:
+          properties:
+            url:
+              description: youtube url string
+              type: string
+          required:
+            - url
+          type: object
+      type: function
+```
+最後に再デプロイを行うことで`/`コマンドで`Youtubeアシスタント`を選択できるようになります。
+
 ## まとめ
 今回はGPTsのような機能をslackで利用するためのアプリケーションを構築しました。
+Streaming利用時のFunction Callingの実装方法に関するドキュメントがあまりなかったので少しだけ苦労しました。
 slackではChatGPTと違い複数人が参加して会話できるため、スレッドの要約や会話の取りまとめなどのタスクもこなしてくれます。
 実際の業務では、社内のナレッジ管理ツールと接続することでナレッジ検索アシスタントが簡単に構築できそうですね。
 
