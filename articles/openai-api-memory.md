@@ -264,7 +264,7 @@ assistant > ChatGPTは、会話中にユーザーが共有する情報を理解�
 threadの内容を確認すると、以前のスレッドの続きから会話が始まっていることがわかります。
 ![memory](/images/gpt-memory/memory.png)
 
-これまでの構成を図にすると以下のようになります。
+ここまでに説明した構成を図にすると以下のようになります。
 
 ![dualrag](/images/gpt-memory/dualrag.png)
 
