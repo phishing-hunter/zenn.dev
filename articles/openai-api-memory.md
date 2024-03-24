@@ -47,6 +47,23 @@ API経由での会話セッションは[こちら](https://platform.openai.com/t
 この`thread_`から始まるIDがThreadオブジェクトを識別するためのIDです。
 ![playground](/images/gpt-memory/thread.png)
 
+## Pineconeを使ったベクトル検索について
+Assistants APIにもベクトル検索を使ったRAGが実装されていますが、pineconeとOpenAIの埋め込みモデルを組み合わせることでRAGを構築することができます。
+今回はOpenAI Embedding APIの`text-embedding-3-small`を使って解説します。
+
+### 埋め込みとインデックス
+1. OpenAI Embedding APIを使用して、テキストデータのベクトル化します。
+2. これらのベクトルデータをPineconeにアップロードすると、数百万/数十億のベクトル埋め込みを保存してインデックス化し、超低レイテンシで検索できるようになります。
+
+### 検索
+1. ユーザの質問内容をOpenAI Embedding APIに渡します。
+2. 結果のベクトルデータを取得し、Pineconeにクエリとして送信します。
+3. ベクトルデータに類似したドキュメント(メタデータ)を返します。
+:::message
+Pineconeにはベクトルデータとメタデータのみが保存され、元のテキストデータは保存されません。
+:::
+![API](/images/gpt-memory/pinecone_arch.png)
+
 ## ベクトル検索を使った会話履歴の検索
 それではユーザの質問内容に関連した過去の会話セッションを検索するコードを書いてみましょう。
 [こちら](https://app.pinecone.io/)からpineconeアカウントを取得し、APIキーを取得します。
