@@ -32,7 +32,7 @@ https://openai.com/blog/memory-and-new-controls-for-chatgpt
 - **Run Step**: Runの一環としてAssistantが取った詳細なステップのリストです。Assistantは、実行中にツールを呼び出したり、メッセージを作成したりすることができます。Run Stepを調べることで、Assistantが最終結果に至る過程を内省することができます。
 
 このThreadオブジェクトは会話を開始するときに新規作成されます。
-ChatGPTだと以下のような画面でThreadオブジェクトが作成されることが確認できます。
+ChatGPTだと以下のような画面でThreadオブジェクトのような物が作成されています。API経由での操作ではないので、実際にThreadオブジェクトを確認することはできません。
 ![](/images/gpt-memory/chatgpt_thread.png)
 
 ChatGPTはチャット履歴から過去の会話を探して再開しない限り、常に新規で会話セッションが作成されるため文脈を一から入力する必要があります。
