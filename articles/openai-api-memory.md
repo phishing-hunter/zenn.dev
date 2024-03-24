@@ -1,6 +1,6 @@
 ---
 title: "多段ベクトル検索を使ってRAGの回答性能を向上させる"
-emoji: "💭"
+emoji: "🧠"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: 
 - openai
