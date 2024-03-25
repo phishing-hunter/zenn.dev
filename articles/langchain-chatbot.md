@@ -20,6 +20,12 @@ ChatGPTを使って最新の情報を調べようとした時に困った事は�
 ![](/images/langchain-chatgpt/1.png)
 今回はChatGPTに新しい知識をあたえて、思考の連鎖(Chain of Thought)を使った受け答えができるチャットボットの作成方法について解説していきます。
 
+:::message alert
+本記事の情報が古くなっております。
+最新のナレッジ管理向けのチャットボットはこちらで解説しております
+:::
+https://zenn.dev/tatsui/articles/slack-copilot
+
 ## 学習データの準備と取り込み
 はじめに学習データとしてRemixのソースコードをクローンします。
 ```bash
