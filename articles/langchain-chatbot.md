@@ -184,7 +184,7 @@ ChatGPTは過去のデータを使って学習しているため、最新の情�
 @[tweet](https://twitter.com/hunter_phishing/status/1633423217523310593)
 
 本記事のサンプルコードはこちらに整理して置いてあります。
-https://github.com/tatsu-i/chatbot-sample
+https://github.com/tatsuiman/chatbot-sample
 この記事を読んで、少しでもお役に立てたなら幸いです。何か質問やご意見がありましたら、お気軽にご連絡ください。
 
 ## 参考

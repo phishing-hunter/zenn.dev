@@ -9,7 +9,7 @@ published: true
 
 Slackのチャット履歴を分析するツールを作成しました。
 本記事のサンプルコードはこちらに整理して置いてあります。
-https://github.com/tatsu-i/slack-team-analyzer
+https://github.com/tatsuiman/slack-team-analyzer
 
 ## チャットコミュニケーションと心理的安全性
 Slackのコミュニケーションにおける分析、特に参加度のバランス、意見の多様性、決定過程の透明性などの指標に基づく分析は、心理的安全性に重要な影響を与えることがあります。  
@@ -72,7 +72,7 @@ Slackコミュニケーションと個人スキル評価を同時に行うこと
 ## インストール
 ### 必要なライブラリのインストール
 ```bash
-git clone https://github.com/tatsu-i/slack-team-analyzer
+git clone https://github.com/tatsuiman/slack-team-analyzer
 cd slack-team-analyzer
 pip install -r requirements.txt
 ```

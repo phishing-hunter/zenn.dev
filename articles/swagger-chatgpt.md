@@ -252,4 +252,4 @@ components:
 ただし、生成されたSwaggerの仕様はあくまで参考の一つであり、実際のAPIの挙動を正確に反映しているわけではないため、適宜手動での確認と修正が必要です。
 
 本記事のサンプルコードはこちらに整理して置いてあります。
-https://github.com/tatsu-i/swagger-gpt
+https://github.com/tatsuiman/swagger-gpt

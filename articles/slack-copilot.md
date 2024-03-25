@@ -16,7 +16,7 @@ OpenAI AssistantsAPI を使用すると、独自のアプリケーションに A
 GPTs も便利ですが、Slack 上でのチャットを可能にすることで、ChatGPT のプランに関係なくワークスペースの全てのメンバーが AI アシスタントを使用できます。(GPTs と違って従量課金になるのでその点は注意が必要です。)
 
 実装コードは以下のリポジトリに公開しております。
-https://github.com/tatsu-i/slack-copilot
+https://github.com/tatsuiman/slack-copilot
 
 :::message
 OpenAI の Assistants API は現在まだベータ版です。
@@ -37,11 +37,11 @@ https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant
 ## 動作イメージ
 以下のようにslackでもGPTsと同じようなことができるようになります。
 ### 1. Function calling 🤖
-![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/notion_search.gif)
+![](https://raw.githubusercontent.com/tatsuiman/slack-copilot/main/docs/notion_search.gif)
 ### 2. Code Interpreter 🐍
-![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/analysis.gif)
+![](https://raw.githubusercontent.com/tatsuiman/slack-copilot/main/docs/analysis.gif)
 ### 3. GPT mentions(アシスタントの切り替え)
-![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/assistant.gif)
+![](https://raw.githubusercontent.com/tatsuiman/slack-copilot/main/docs/assistant.gif)
 
 ## アーキテクチャ
 今回構築したアプリケーションのアーキテクチャは以下のようになっています。
@@ -121,7 +121,7 @@ sequenceDiagram
 ## デプロイ方法
 はじめにリポジトリをクローンして環境変数の読み込みを行います。
 ```bash
-git clone https://github.com/tatsu-i/slack-copilot
+git clone https://github.com/tatsuiman/slack-copilot
 cd slack-copilot
 cp env.sample .envrc
 source .envrc
@@ -241,7 +241,7 @@ slackではChatGPTと違い複数人が参加して会話できるため、ス�
 実際の業務では、社内のナレッジ管理ツールと接続することでナレッジ検索アシスタントが簡単に構築できそうですね。
 
 こちらはインシデント対応時のアシスタント活用のデモ動画です。
-![](https://raw.githubusercontent.com/tatsu-i/slack-copilot/main/docs/demo.gif)
+![](https://raw.githubusercontent.com/tatsuiman/slack-copilot/main/docs/demo.gif)
 
 ## 参考
 https://zenn.dev/taroshun32/articles/slack-chatbot-with-openai-asistant

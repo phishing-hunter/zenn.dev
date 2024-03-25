@@ -105,7 +105,7 @@ Kulanaのオンラインショッピングプラットフォームでは、
 次のようにIPアドレスに関連した情報を調べるAPIをFastAPIで実装し、OpenAPI SpecをAIPluginToolに読み込ませてみました。  
 @[tweet](https://twitter.com/hunter_phishing/status/1640704330222415873)
 サンプルコードはこちらに整理して置いてあります。
-https://github.com/tatsu-i/chatbot-sample
+https://github.com/tatsuiman/chatbot-sample
 
 langchainのエージェントに複数のAPIやツールを読み込ませている場合には、「どのAPIを使って、どうやってAPIを実行するのか」を説明してあげると精度が上がりました。  
 ```
