@@ -129,7 +129,11 @@ Instructionsには以下を設定します。
 APIキーや認証情報については特に指定がなければ環境変数に設定されている値を利用します。
 ```
 
+またcode interpreterのチェックを外してください。
+![](/images/gpts-actions/gpts.png)
+
 新しいアクションを作成し`Actions`に以下を設定します。
+
 `servers.url`はデプロイ時のエンドポイントに置き換えてください。
 
 :::details Actions
