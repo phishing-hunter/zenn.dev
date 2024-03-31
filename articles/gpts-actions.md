@@ -7,7 +7,7 @@ topics:
  - chatgpt
  - jupyter
  - python
-published: ture
+published: true
 ---
 
 ## はじめに
