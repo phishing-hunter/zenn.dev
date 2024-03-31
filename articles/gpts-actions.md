@@ -1,6 +1,6 @@
 ---
 title: "Jupyter ✖️ ChatGPT: セルフホストの「Code Interpreter」を構築する"
-emoji: "🐥"
+emoji: "😎"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics:
  - openai
