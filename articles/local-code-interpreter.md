@@ -18,7 +18,7 @@ ChatGPTのCode InterpreterモードではChatGPTが生成したpythonコード�
 2. 自動文書化
 3. バグの検出と説明
 
-しかし、Code InterpreterはPython以外の言語では動作しないため、Python言語をあまり使わないような人にとってはAI駆動開発の恩恵が少ないかもしれません。
+しかし、Code InterpreterはPython以外の言語では動作しないため、Python言語をあまり使わない人にとってはAI駆動開発の恩恵が少ないかもしれません。
 そこで本記事では、Python以外の言語でCode Interpreterを動かす方法について解説していきたいと思います。
 
 
@@ -84,9 +84,9 @@ USER root
 RUN apt-get update && apt-get install -y build-essential curl git
 ```
 
-C言語でHello Worldを書くように指示すると、pythonの構文を使ってC言語のソースコードを出力してからGCCでコンパイルを実行しようとします。
+C言語でHello Worldを書くように指示すると、pythonの構文を使ってC言語のソースコードを出力してからGCCでコンパイルをした後にプログラムを実行しようとします。
 これでは使い勝手が悪いので、せっかくなのでいろんな言語のカーネルをJupyterにインストールして色々試してみることにしました。
-https://twitter.com/tatsuiman/status/1774419524164464664
+@[tweet](https://twitter.com/tatsuiman/status/1774419524164464664)
 
 ## 3. カーネルをインストールする
 先ほどのDockerfileを修正して、C++,Java,Go,Ruby,JavaScript,TypeScript,Rustのカーネルをインストールします。
