@@ -29,6 +29,18 @@ graph LR;
         D --> E[Jupyter];
     end
 ```
+:::message
+もしJupyterをEC2にホストする場合は以下のように構築します。
+:::
+```mermaid
+graph LR;
+    GPT[GPTs] --> A[API Gateway];
+    A[API Gateway] --> B[Lambda];
+    B --> C[ACL];
+    subgraph VPC
+        C --> D[Jupyter];
+    end
+```
 
 ## Jupyterの構築
 まずはローカル環境から先に構築します。
@@ -46,7 +58,7 @@ cd jupyter-ngrok-worker
 
 https://ngrok.com/
 
-取得したら.envファイルに`NGROK_AUTH`に値を設定します。`JUPYTER_TOKEN`には任意の文字列を設定します。
+取得したら.envファイルの`NGROK_AUTH`に値を設定します。`JUPYTER_TOKEN`には32文字程度の任意の文字列を設定します。
 ```bash
 cp env.sample .env
 vim .env
@@ -67,9 +79,8 @@ dockerをビルドして起動します。
 docker-compose up -d --build
 ```
 
-起動が完了したらngrokの管理画面から接続URLを確認してブラウザで開いてみます。
-
-https://dashboard.ngrok.com/cloud-edge/endpoints
+起動が完了したらngrokの管理画面から管理用APIキーを発行します。
+https://dashboard.ngrok.com/api
 ![](/images/gpts-actions/ngrok.png)
 
 ## AWS API Gateway Lambdaのデプロイ
@@ -91,13 +102,14 @@ cp env.sample .envrc
 source .envrc
 ```
 
-`.envrc`は主にFunction Callingで使用するツールのAPIキーや設定のための環境変数が定義されいますが、今回は`JUPYTER_HOST`と`JUPYTER_TOKEN`以外は設定しなくて良いです。
-* `JUPYTER_HOST`: ngrokの接続先のホスト名`<random-string>.ngrok-free.app`
-* `JUPYTER_TOKEN`: Jupyter構築時に設定した任意の文字列
-`JUPYTER_HOST`はdockerを再起動してしまうと変わってしまうので、変更された場合はAWSの再デプロイが必要です。
+`.envrc`は主にFunction Callingで使用するツールのAPIキーや設定のための環境変数が定義されいますが、今回は`NGROK_API_KEY`と`JUPYTER_TOKEN`以外は設定しなくて良いです。
+
+* `NGROK_API_KEY`: 先ほど取得したngrokの管理用APIキーを設定します
+* `JUPYTER_TOKEN`: Jupyter構築時に設定した`JUPYTER_TOKEN`と同じ値を入れます。
+* ngrokを使わずにVPC経由で接続する場合は`NGROK_TOKEN`を指定せずに`JUPYTER_HOST`にjupyterのホスト名を指定します
 
 
-デプロイを実行します。
+環境変数の準備が整ったらデプロイを実行します。
 ```bash
 aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws
 sls deploy
@@ -164,7 +176,12 @@ APIキーや認証情報については特に指定がなければ環境変数�
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {},
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "Supported languages: ruby,rust,python3,java,xcpp11,xcpp17,xcpp14,tslab,jslab,gonb"
+                  }
+                },
                 "required": []
               }
             }
@@ -217,6 +234,35 @@ APIキーや認証情報については特に指定がなければ環境変数�
                 "required": [
                   "code",
                   "kernel_id"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jupyter_run_command": {
+      "post": {
+        "description": "Execute Linux command",
+        "operationId": "jupyter_run_command",
+        "tags": [
+          "Jupyter",
+          "Execute"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "command": {
+                    "type": "string",
+                    "description": "Linux command to execute"
+                  }
+                },
+                "required": [
+                  "command"
                 ]
               }
             }
