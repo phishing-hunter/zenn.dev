@@ -1,5 +1,5 @@
 ---
-title: "ChatGPT「Code Interpreter」でPython以外の言語を動かしたい"
+title: "ChatGPT「Code Interpreter」をPython以外の言語で動かしたい"
 emoji: "✨"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics:
